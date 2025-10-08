@@ -65,8 +65,7 @@ def min_max(nums: list[float or int]) -> tuple[float or int, float or int]:
 - `[]`
 - `[1.5, 2, 2.0, -3.1]`
 
-Выходные данные:
-
+Выходные данные
 ![Картинка 1](./images/lab02/min-max.png "Выходные данные")
 
 2. Функция unique_sorted. Возвращает отсортированный список уникальных значений (по возрастанию).
@@ -85,7 +84,7 @@ def unique_sorted(nums: list[float or int]) -> list[float or int]:
 - `[-1, -1, 0, 2, 2]`
 - `[1.0, 1, 2.5, 2.5, 0]`
 
-Выходные данные:
+Выходные данные
 ![Картинка 2](./images/lab02/unique-sorted.png)
 
 3. Функция flatten. Возвращает «Расплющенный» список списков/кортежей в один список по строкам (row-major).
@@ -112,7 +111,7 @@ def flatten(mat: list[list or tuple]) -> list:
 - `[[1], [], [2, 3]]`
 - `[[1, 2], "ab"]`
 
-Выходные данные:
+Выходные данные
 ![Картинка 3](./images/lab02/flatten.png)
 
 
@@ -161,7 +160,7 @@ def transpose(mat: list[list[float or int]]) -> list[list]:
 - `[]`
 - `[[1, 2], [3]]`
 
-Выходные данные:
+Выходные данные
 ![Картинка 4](./images/lab02/transpose.png)
 
 2. Функция row_sums. Возвращает массив с суммами по каждой строке матрицы.
@@ -191,7 +190,7 @@ def row_sums(mat: list[list[float or int]]) -> list[float]:
 - `[[0, 0], [0, 0]]`
 - `[[1, 2], [3]]`
 
-Выходные данные:
+Выходные данные
 ![Картинка 5](./images/lab02/row-sums.png)
 
 3. Функция col_sums. Возвращает массив с суммами по каждому столбцу матрицы.
@@ -222,7 +221,7 @@ def col_sums(mat: list[list[float or int]]) -> list[float]:
 - `[[0, 0], [0, 0]]`
 - `[[1, 2], [3]]`
 
-Выходные данные:
+Выходные данные
 ![Картинка 6](./images/lab02/col-sums.png)
 
 
@@ -259,5 +258,5 @@ def format_record(rec: tuple[str, str, float]) -> str:
 - `("Петров Пётр Петрович", "IKBO-12", 5.0)`
 - `("  сидорова  анна   сергеевна ", "ABB-01", 3.999)`
 
-Выходные данные:
+Выходные данные
 ![Картинка 7](./images/lab02/tuples.png)
