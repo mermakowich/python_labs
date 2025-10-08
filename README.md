@@ -66,9 +66,9 @@ def min_max(nums: list[float or int]) -> tuple[float or int, float or int]:
 - `[1.5, 2, 2.0, -3.1]`
 
 Выходные данные:
-![Картинка 1](./images/lab02/min-max.png)
+![Картинка 1](./images/lab02/min-max.png "Выходные данные")
 
-Функция min_max. Возвращает кортеж (минимум, максимум). Если список пуст — ValueError.
+Функция unique_sorted. Возвращает отсортированный список уникальных значений (по возрастанию).
 ```python
 def unique_sorted(nums: list[float or int]) -> list[float or int]:
     """
