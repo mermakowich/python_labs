@@ -48,7 +48,7 @@ print(f"Длина (символов): {len(m[0])+len(m[1])+len(m[2]) + 2}")
 ## Лаба №2
 ### Задание 1 - arrays.py
 
-Функция min_max. Возвращает кортеж (минимум, максимум). Если список пуст — ValueError.
+1. Функция min_max. Возвращает кортеж (минимум, максимум). Если список пуст — ValueError.
 ```python
 def min_max(nums: list[float or int]) -> tuple[float or int, float or int]:
     """
@@ -66,9 +66,10 @@ def min_max(nums: list[float or int]) -> tuple[float or int, float or int]:
 - `[1.5, 2, 2.0, -3.1]`
 
 Выходные данные:
+
 ![Картинка 1](./images/lab02/min-max.png "Выходные данные")
 
-Функция unique_sorted. Возвращает отсортированный список уникальных значений (по возрастанию).
+2. Функция unique_sorted. Возвращает отсортированный список уникальных значений (по возрастанию).
 ```python
 def unique_sorted(nums: list[float or int]) -> list[float or int]:
     """
@@ -87,7 +88,7 @@ def unique_sorted(nums: list[float or int]) -> list[float or int]:
 Выходные данные:
 ![Картинка 2](./images/lab02/unique-sorted.png)
 
-Функция flatten. Возвращает «Расплющенный» список списков/кортежей в один список по строкам (row-major).
+3. Функция flatten. Возвращает «Расплющенный» список списков/кортежей в один список по строкам (row-major).
 ```python
 def flatten(mat: list[list or tuple]) -> list:
     """
@@ -118,8 +119,23 @@ def flatten(mat: list[list or tuple]) -> list:
 ### Задание 2 - matrix.py
 
 Все функции для ПРЯМОУГОЛЬНЫХ матриц.
+Проверка реализуется функцией ```isrectangle(mat: list[list[float or int]])```
+```python
+def isrectangle(mat: list[list[float or int]]):
+    """
+    Функция проверяет прямоугольность НЕПУСТОЙ матрицы
+    """
+    lenstr = len(mat[0])
+    for line in mat:
+        if len(line) == lenstr:
+            continue
+        else:
+            return False
+    return True
+```
 
-Функция transpose. Меняет строки и столбцы матрицы местами
+
+1. Функция transpose. Меняет строки и столбцы матрицы местами
 ```python
 def transpose(mat: list[list[float or int]]) -> list[list]:
     """
@@ -148,7 +164,7 @@ def transpose(mat: list[list[float or int]]) -> list[list]:
 Выходные данные:
 ![Картинка 4](./images/lab02/transpose.png)
 
-Функция row_sums. Возвращает массив с суммами по каждой строке матрицы.
+2. Функция row_sums. Возвращает массив с суммами по каждой строке матрицы.
 ```python
 def row_sums(mat: list[list[float or int]]) -> list[float]:
     """
@@ -178,7 +194,7 @@ def row_sums(mat: list[list[float or int]]) -> list[float]:
 Выходные данные:
 ![Картинка 5](./images/lab02/row-sums.png)
 
-Функция col_sums. Возвращает массив с суммами по каждому столбцу матрицы.
+3. Функция col_sums. Возвращает массив с суммами по каждому столбцу матрицы.
 ```python
 def col_sums(mat: list[list[float or int]]) -> list[float]:
     """
