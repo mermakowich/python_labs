@@ -96,9 +96,7 @@ def flatten(mat: list[list or tuple]) -> list:
     row_major = []
     for i in range(len(mat)):
         if isinstance(mat[i], list) or isinstance(mat[i], tuple):
-            """
-            Проверяем элементы (список или кортеж), а потом проходимся по каждому элементу строки
-            """
+            
             for k in range(len(mat[i])):
                 row_major.append(mat[i][k])
         else:
@@ -138,15 +136,13 @@ def isrectangle(mat: list[list[float or int]]):
 ```python
 def transpose(mat: list[list[float or int]]) -> list[list]:
     """
-    Проверка на пустой массив и непрямоугольность
+    Функция проверяет на пустой массив и непрямоугольность, 
+    затем меняет строки и столбцы местами, создаёт trans - новый массив, т.е. транспонирует матрицу
     """
     if mat == []:
         return []
     if not isrectangle(mat):
         return "ValueError"
-    """
-    Меняет строки и столбцы местами, trans - новый массив
-    """
     trans = [[] for k in range(len(mat[0]))]
     for i in range(len(mat)):
         for k in range(len(mat[i])):
@@ -167,15 +163,13 @@ def transpose(mat: list[list[float or int]]) -> list[list]:
 ```python
 def row_sums(mat: list[list[float or int]]) -> list[float]:
     """
-    Проверка на пустой массив и непрямоугольность
+    Функция проверяет на пустой массив и непрямоугольность,
+    затем находит сумму элементов строки
     """
     if mat == []:
         return []
     if not isrectangle(mat):
         return "ValueError"
-    """
-    Заходим в каждую строку и получаем сумму элементов строки, которую помещаем в массив row_sum
-    """
     row_sum = []
     for i in range(len(mat)):
         lensum = 0
@@ -197,16 +191,13 @@ def row_sums(mat: list[list[float or int]]) -> list[float]:
 ```python
 def col_sums(mat: list[list[float or int]]) -> list[float]:
     """
-    Проверка на пустой массив и непрямоугольность
+    Функция проверяет на пустой массив и непрямоугольность,
+    затем находит сумму элементов столбца
     """
     if mat == []:
         return []
     if not isrectangle(mat):
         return "ValueError"
-
-    """
-    Заходит в каждый столбец и суммирует элементы, сумма помещается в col_sum
-    """
     col_sum = []
     for i in range(len(mat[0])):
         lencol = 0
