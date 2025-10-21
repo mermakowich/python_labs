@@ -42,9 +42,7 @@ def flatten(mat: list[list or tuple]) -> list:
     row_major = []
     for i in range(len(mat)):
         if isinstance(mat[i], list) or isinstance(mat[i], tuple):
-            """
-            Проверяем элементы (список или кортеж), а потом проходимся по каждому элементу строки
-            """
+            
             for k in range(len(mat[i])):
                 row_major.append(mat[i][k])
         else:
