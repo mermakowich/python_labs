@@ -127,9 +127,9 @@ def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:
 
 ### Задание 2 - text_stats.py
 
-`Вводим через stdin через команду sys.stdin.read()`
+Вводим через `stdin` через команду `sys.stdin.read()`
 
-`Далее вызываем команды из text.py`
+Далее вызываем команды из text.py
 
 ```python
 import sys
@@ -151,5 +151,5 @@ for word, count in top_n(freq, 5):
 Ввод
 `$ echo "Привет, мир! Привет!!!" | python src/text_stats.py`
 
-Выход
+Вывод
 ![Картинка 7](./images/lab03/text_stats.png)
