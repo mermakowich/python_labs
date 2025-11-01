@@ -1,6 +1,9 @@
 import re
 
 def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
+    """
+    Функция нормализует строку через casefold, меняет все ё/Ë на е/Е и убирает лишние пробелы
+    """
     if casefold:
         text = text.casefold()
     if yo2e:
@@ -9,10 +12,17 @@ def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
     return text 
 
 def tokenize(text: str) -> list[str]:
-    tokens = re.findall(r'\b\w+(?:-\w+)*\b', text)
+    """
+    Функция разбивает на «слова» по небуквенно-цифровым разделителям, возвращает массив токенов
+    """
+    tokens = re.findall(r'\w+(?:-\w+)*', text)
     return tokens
 
 def count_freq(tokens: list[str]) -> dict[str, int]:
+    """
+    Функция создаёт множество из полученного массива токенов, для каждого элемента множества считает частоту в исходном массиве
+    и записывает в словарь
+    """
     dict_list = {}
     set_list = set(tokens)
     for token in set_list:
@@ -20,6 +30,9 @@ def count_freq(tokens: list[str]) -> dict[str, int]:
     return dict(sorted(dict_list.items()))
 
 def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:
+    """
+    Функция сортирует items словаря частот и выводит первые N значений
+    """
     sorted_items = sorted(freq.items())
     return sorted_items[:n]
 
