@@ -127,7 +127,6 @@ def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:
 
 ### Задание 2 - text_stats.py
 
-Ввод как кортеж:
 `Вводим через stdin через команду sys.stdin.read()`
 
 `Далее вызываем команды из text.py`
