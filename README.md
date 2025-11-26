@@ -153,3 +153,88 @@ for word, count in top_n(freq, 5):
 
 Вывод
 ![Картинка 7](./images/lab03/text_stats.png)
+
+
+## Лаба №4
+### Задание А - модуль src/lab04/io_txt_csv.py
+
+1. Функция read_text. Функция читает текст и из файла и возвращает как одну строку. Каждая новая строка склеивается с предыдущей через пробел. 
+Если файл не найден, возникает FileNotFoundError, функция падает.
+Если кодировка не подходит, возникает UnicodeDecodeError, функция падает.
+
+
+2. Функция write_csv. Функция создаёт или перезаписывает CSV с разделителем ",".
+header (если есть), всегда записывается первой строкой. 
+Если rows имеют разную длину, то поднимаем ValueError 
+Если rows пустой и header=None создаётся пустой CSV
+
+Тест
+```python
+from io_txt_csv import read_text, write_csv
+txt = print(read_text("data/lab04/input1.txt"))  # должен вернуть строку
+write_csv([("word","count"),("test",3)], "data/lab04/check.csv")  # создаст CSV
+```
+
+input.txt
+- `Всем привет! Я сделал лабу!!!`
+
+вывод в консоль
+- `Всем, привет! Я сделал лабу!!!`
+
+check.csv
+![Картинка 1](./images/lab04/test_csv.png)
+
+
+### Задание B - скрипт src/lab04/text_report.py
+
+Скрипт читает входной файл `data/lab04/input.txt`,
+Нормализует, токенизирует и считает частоты слов прочитанного файла,
+Сохраняет `data/lab04/report.csv` c колонками: word,count, отсортированными: count ↓, слово ↑ (при равенстве),
+Выводит в консоль краткое резюме.
+Нужные функции импортируем из `lib/text.py` и `io_text_csv.py` с помощью относительного импорта.
+С помощью библиотеки `parser` читаем команды из командной строки, в том числе указание другой кодировки с помощью --encoding
+Если файла нет или проблема с кодировкой, то выводим print с ошибкой, а затем выходим через `sys.exit(1)`.
+Если `input.txt` пустой, то `report.csv` содержит только заголовок.
+
+Тесты
+
+A. Один файл 
+
+Ввод в терминал
+`python -m src.lab04.text_report --in data/lab04/input1.txt --out data/lab04/report.csv`
+
+Вход (data/lab04/input1.txt):
+`Всем, привет! Я сделал лабу!!!`
+
+report.csv
+![Картинка 1](./images/lab04/report1.png)
+
+консоль
+![Картинка 1](./images/lab04/terminal1.png)
+
+B. Пустой файл
+
+Ввод в терминал
+`python -m src.lab04.text_report --in data/lab04/input1.txt --out data/lab04/report.csv`
+
+Вход (data/lab04/input1.txt) пустой
+
+report.csv
+![Картинка 1](./images/lab04/report2.png)
+
+консоль
+![Картинка 1](./images/lab04/terminal2.png)
+
+C. Кодировка cp1251
+
+Ввод в терминал
+`python -m src.lab04.text_report --in data/lab04/input.txt --out data/lab04/report.csv --encoding cp1251`
+
+Вход (data/lab04/input.txt):
+`Привет` (кодировка cp1251)
+
+report.csv
+![Картинка 1](./images/lab04/report3.png)
+
+консоль
+![Картинка 1](./images/lab04/terminal3.png)
