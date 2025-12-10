@@ -9,11 +9,14 @@ import re
 
 from ..lib.text import normalize, tokenize, count_freq, top_n
 
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="CLI‑утилиты")
     subparsers = parser.add_subparsers(dest="command")
 
-    cat_parser = subparsers.add_parser("cat", help="Вывод содержимого файла построчно (с нумерацией при -n)")
+    cat_parser = subparsers.add_parser(
+        "cat", help="Вывод содержимого файла построчно (с нумерацией при -n)"
+    )
     cat_parser.add_argument("--input", required=True, help="Путь к файлу")
     cat_parser.add_argument("-n", action="store_true", help="Нумеровать строки")
 
@@ -34,15 +37,15 @@ def main() -> None:
             else:
                 for line in f:
                     print(line.rstrip())
-        
+
     elif args.command == "stats":
         path = Path(args.input)
         if not path.exists():
             raise FileNotFoundError("Файл не найден")
-    
+
         with path.open(encoding="utf-8") as f:
             text = f.read()
-        
+
         normalized = normalize(text)
         tokens = tokenize(normalized)
         freq = count_freq(tokens)

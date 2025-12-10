@@ -238,3 +238,130 @@ report.csv
 
 консоль
 ![Картинка 1](./images/lab04/terminal3.png)
+
+## Лаба №5
+### Задание А - модуль src/lab05/json_csv.py
+
+1. Функция `json_to_csv`. Преобразует JSON-файл в CSV. Заголовки берутся из первого объекта. 
+Отсутствующие значения заменяются на пустую строку. Файл записывается в UTF-8.
+Аргументы:
+    `json_path`: путь к входному JSON, 
+    `csv_path`: путь к выходному CSV.
+Ошибки:
+    `FileNotFoundError`: если файл отсутствует, 
+    `ValueError`: если структура неверная, нет заголовков, не всё словари или файл пустой.
+
+#### Тест
+people.json
+![Картинка 1](./images/lab05/people_json.png)
+
+people_from_json.csv
+![Картинка 1](./images/lab05/people_from_json.png)
+
+
+2. Функция `csv_to_json`. Функция преобразует CSV-файл в JSON.
+Все значения сохраняются как строки.
+
+#### Тест
+
+people.csv
+![Картинка 1](./images/lab05/people_csv.png)
+
+people_from_csv.json
+![Картинка 1](./images/lab05/people_from_csv.png)
+
+
+### Задание B - скрипт src/lab04/text_report.py
+
+Конвертирует `CSV` в `XLSX` (лист `"Лист1"`, автоширина >=8), 
+Читаем `CSV` через `csv.reader()`, 
+Создаем `Workbook`, лист `"Лист1"`, 
+Добавляем строки через `ws.append()`, 
+Устанавливает ширину колонок, равную `12` через `ws.column_dimensions[].width`
+
+Аргументы:
+    `csv_path`: путь к `CSV`, 
+    `xlsx_path`: путь к `XLSX`.
+
+Ошибки:
+    `FileNotFoundError`: если `CSV` не найден, 
+    `ValueError`: если `CSV` пустой.
+
+#### Тесты
+
+people.csv
+![Картинка 1](./images/lab05/people_csv.png)
+
+people_from_csv.xlsx
+![Картинка 1](./images/lab05/people_from_csv_xlsx.png)
+
+
+cities.csv
+![Картинка 1](./images/lab05/cities_csv.png)
+
+cities_from_csv.xlsx
+![Картинка 1](./images/lab05/cities_from_csv.png)
+
+
+# Лаба №6
+### Задание А - модуль src/lab05/json_csv.py
+
+1. Функция `json_to_csv`. Преобразует JSON-файл в CSV. Заголовки берутся из первого объекта. 
+Отсутствующие значения заменяются на пустую строку. Файл записывается в UTF-8.
+Аргументы:
+    `json_path`: путь к входному JSON, 
+    `csv_path`: путь к выходному CSV.
+Ошибки:
+    `FileNotFoundError`: если файл отсутствует, 
+    `ValueError`: если структура неверная, нет заголовков, не всё словари или файл пустой.
+
+#### Тест
+people.json
+![Картинка 1](./images/lab05/people_json.png)
+
+people_from_json.csv
+![Картинка 1](./images/lab05/people_from_json.png)
+
+
+2. Функция `csv_to_json`. Функция преобразует CSV-файл в JSON.
+Все значения сохраняются как строки.
+
+#### Тест
+
+people.csv
+![Картинка 1](./images/lab05/people_csv.png)
+
+people_from_csv.json
+![Картинка 1](./images/lab05/people_from_csv.png)
+
+
+### Задание B - скрипт src/lab04/text_report.py
+
+Конвертирует `CSV` в `XLSX` (лист `"Лист1"`, автоширина >=8), 
+Читаем `CSV` через `csv.reader()`, 
+Создаем `Workbook`, лист `"Лист1"`, 
+Добавляем строки через `ws.append()`, 
+Устанавливает ширину колонок, равную `12` через `ws.column_dimensions[].width`
+
+Аргументы:
+    `csv_path`: путь к `CSV`, 
+    `xlsx_path`: путь к `XLSX`.
+
+Ошибки:
+    `FileNotFoundError`: если `CSV` не найден, 
+    `ValueError`: если `CSV` пустой.
+
+#### Тесты
+
+people.csv
+![Картинка 1](./images/lab05/people_csv.png)
+
+people_from_csv.xlsx
+![Картинка 1](./images/lab05/people_from_csv_xlsx.png)
+
+
+cities.csv
+![Картинка 1](./images/lab05/cities_csv.png)
+
+cities_from_csv.xlsx
+![Картинка 1](./images/lab05/cities_from_csv.png)

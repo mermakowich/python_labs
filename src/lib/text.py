@@ -1,5 +1,6 @@
 import re
 
+
 def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
     """
     Функция нормализует строку через casefold, меняет все ё/Ë на е/Е и убирает лишние пробелы
@@ -8,26 +9,33 @@ def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
         text = text.casefold()
     if yo2e:
         text = text.replace("ё", "е").replace("Ё", "Е")
-    text = " ".join((text.replace("\t", " ").replace("\r", " ").replace("\n", " ")).split())
-    return text 
+    text = " ".join(
+        (text.replace("\t", " ").replace("\r", " ").replace("\n", " ")).split()
+    )
+    return text
+
 
 def tokenize(text: str) -> list[str]:
     """
     Функция разбивает на «слова» по небуквенно-цифровым разделителям, возвращает массив токенов
     """
-    tokens = re.findall(r'\w+(?:-\w+)*', text)
+    tokens = re.findall(r"\w+(?:-\w+)*", text)
     return tokens
+
 
 def count_freq(tokens: list[str]) -> dict[str, int]:
     """
     Функция создаёт множество из полученного массива токенов, для каждого элемента множества считает частоту в исходном массиве
     и записывает в словарь
     """
-    dict_list = {}
-    set_list = set(tokens)
-    for token in set_list:
-        dict_list[token] = tokens.count(token)
-    return dict(sorted(dict_list.items()))
+    freq: dict[str, int] = {}
+    for token in tokens:
+        if token in freq:
+            freq[token] += 1
+        else:
+            freq[token] = 1
+    return freq
+
 
 def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:
     """
@@ -54,13 +62,14 @@ def main():
     print()
 
     print("count_freq")
-    print(count_freq(["a","b","a","c","b","a"]))
-    print(count_freq(["bb","aa","bb","aa","cc"]))
+    print(count_freq(["a", "b", "a", "c", "b", "a"]))
+    print(count_freq(["bb", "aa", "bb", "aa", "cc"]))
     print()
 
     print("top_n")
-    print(top_n({"a":3,"b":2,"c":1}, n=2))
-    print(top_n({"aa":2,"bb":2,"cc":1}, n=2))
+    print(top_n({"a": 3, "b": 2, "c": 1}, n=2))
+    print(top_n({"aa": 2, "bb": 2, "cc": 1}, n=2))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

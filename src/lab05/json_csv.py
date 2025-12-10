@@ -71,8 +71,8 @@ def csv_to_json(csv_path, json_path):
 
     with path.open(encoding="utf-8") as f:
         reader = csv.DictReader(f)
-        if not reader.fieldnames:
-            raise ValueError("CSV не содержит заголовка")
+        if reader.fieldnames is None:
+            raise ValueError()
         data = []
         for row in reader:
             """
@@ -86,8 +86,7 @@ def csv_to_json(csv_path, json_path):
     with Path(json_path).open("w", encoding="utf-8") as out:
         json.dump(data, out, ensure_ascii=False, indent=2)
 
+
 if __name__ == "__main__":
-    json_to_csv("data/lab05/samples/people.json",
-                "data/lab05/out/people_from_json.csv")
-    csv_to_json("data/lab05/samples/people.csv",
-                "data/lab05/out/people_from_csv.json")
+    json_to_csv("data/lab05/samples/people.json", "data/lab05/out/people_from_json.csv")
+    csv_to_json("data/lab05/samples/people.csv", "data/lab05/out/people_from_csv.json")

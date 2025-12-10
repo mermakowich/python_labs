@@ -11,6 +11,7 @@ def format_record(rec: tuple[str, str, float]) -> str:
     if len(fio) == 2:
         return f"{fio[0].capitalize()} {fio[1][0].upper()}., гр. {group}, GPA {gpa:.2f}"
 
+
 print(format_record(("Иванов Иван Иванович", "BIVT-25", 4.6)))
 print(format_record(("Петров Пётр", "IKBO-12", 5.0)))
 print(format_record(("Петров Пётр Петрович", "IKBO-12", 5.0)))
