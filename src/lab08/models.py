@@ -3,6 +3,7 @@ from dataclasses import dataclass
 
 DATE_FORMAT = "%Y-%m-%d"
 
+
 @dataclass
 class Student:
     fio: str

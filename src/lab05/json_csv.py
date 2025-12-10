@@ -8,6 +8,7 @@ import csv
 from pathlib import Path
 from ..lib.io_helpers import write_csv
 
+
 def json_to_csv(json_path, csv_path):
     """
     Преобразует JSON-файл в CSV.
