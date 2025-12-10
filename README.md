@@ -306,64 +306,43 @@ cities_from_csv.xlsx
 
 
 # Лаба №6
-### Задание А - модуль src/lab05/json_csv.py
+### Задание А
 
-1. Функция `json_to_csv`. Преобразует JSON-файл в CSV.  Заголовки берутся из первого объекта.  
-Отсутствующие значения заменяются на пустую строку. Файл записывается в UTF-8.  
-Аргументы:  
-    `json_path`: путь к входному JSON,  
-    `csv_path`: путь к выходному CSV.  
-Ошибки:  
-    `FileNotFoundError`: если файл отсутствует,  
-    `ValueError`: если структура неверная, нет заголовков, не всё словари или файл пустой.  
+- Модуль `src/lab06/cli_text.py` с подкомандами:
+  - `stats --input <txt> [--top 5]` — анализ частот слов в тексте (использовать функции из `lab03`);
+  - `cat --input <path> [-n]` — вывод содержимого файла построчно (с нумерацией при `-n`).
 
-#### Тест
-people.json
-![Картинка 1](./images/lab05/people_json.png)
+#### Примеры запуска
 
-people_from_json.csv
-![Картинка 1](./images/lab05/people_from_json.png)
+text.txt
+![Картинка 1](./images/lab06/text_txt.png)
 
+`python -m src.lab06.cli_text stats --input data/text.txt --top 3`
+![Картинка 1](./images/lab06/stats_cli.png)
 
-2. Функция `csv_to_json`. Функция преобразует CSV-файл в JSON.
-Все значения сохраняются как строки.
+`python -m src.lab06.cli_text cat --input data/text.txt -n`
+![Картинка 1](./images/lab06/cat_cli.png)
 
-#### Тест
-
-people.csv
-![Картинка 1](./images/lab05/people_csv.png)
-
-people_from_csv.json
-![Картинка 1](./images/lab05/people_from_csv.png)
+`python -m src.lab06.cli_text --help`
+![Картинка 1](./images/lab06/text_help.png)
 
 
-### Задание B - скрипт src/lab04/text_report.py
+### Задание B
 
-Конвертирует `CSV` в `XLSX` (лист `"Лист1"`, автоширина >=8),  
-Читаем `CSV` через `csv.reader()`,  
-Создаем `Workbook`, лист `"Лист1"`,  
-Добавляем строки через `ws.append()`,  
-Устанавливает ширину колонок, равную `12` через `ws.column_dimensions[].width`
+- Модуль `src/lab06/cli_convert.py` с подкомандами:
+  - `json2csv --in data/samples/people.json --out data/out/people.csv`  
+  - `csv2json --in data/samples/people.csv --out data/out/people.json`  
+  - `csv2xlsx --in data/samples/people.csv --out data/out/people.xlsx`  
 
-Аргументы:
-    `csv_path`: путь к `CSV`, 
-    `xlsx_path`: путь к `XLSX`.
+#### Примеры запуска
 
-Ошибки:
-    `FileNotFoundError`: если `CSV` не найден, 
-    `ValueError`: если `CSV` пустой.
+#### Примеры запуска
 
-#### Тесты
+text.txt
+![Картинка 1](./images/lab06/text_txt.png)
 
-people.csv
-![Картинка 1](./images/lab05/people_csv.png)
+`python -m src.lab06.cli_convert json2csv --in data/lab05/samples/people.json  --out data/lab05/out/people_from_json.csv`
+- Создаёт people_from_json.csv, точно такой же как в 5 лабе, аналагично для других утилит
 
-people_from_csv.xlsx
-![Картинка 1](./images/lab05/people_from_csv_xlsx.png)
-
-
-cities.csv
-![Картинка 1](./images/lab05/cities_csv.png)
-
-cities_from_csv.xlsx
-![Картинка 1](./images/lab05/cities_from_csv.png)
+`python_labs % python -m src.lab06.cli_convert --help`
+![Картинка 1](./images/lab06/convert_help.png)
