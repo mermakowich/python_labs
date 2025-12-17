@@ -75,7 +75,10 @@ class Group:
             with self.path.open("r", encoding="utf-8", newline="") as f:
                 reader = csv.DictReader(f)
                 for r in reader:
-                    if set(self.HEADER).issubset(r.keys()) and substr_lower in r["fio"].lower():
+                    if (
+                        set(self.HEADER).issubset(r.keys())
+                        and substr_lower in r["fio"].lower()
+                    ):
                         s = Student.from_dict(r)
                         matched.append(s)
         except FileNotFoundError:
@@ -156,10 +159,7 @@ def main():
 
     print("\n2. CREATE: Добавление нового студента")
     new_student = Student(
-        fio="Тестов Тест Тестович",
-        birthdate="2004-05-15",
-        group="БИВТ-21-3",
-        gpa=4.0
+        fio="Тестов Тест Тестович", birthdate="2004-05-15", group="БИВТ-21-3", gpa=4.0
     )
     group.add(new_student)
     print(f"  Добавлен: {new_student.fio}")
@@ -189,6 +189,7 @@ def main():
     students = group.list()
     for s in students:
         print(f"  {s.fio} | {s.group} | GPA: {s.gpa}")
+
 
 if __name__ == "__main__":
     main()
