@@ -580,7 +580,7 @@ fio,birthdate,group,gpa
 - Очереди сообщений
 
 **Важно:** В Python `list.pop(0)` работает за **O(n)** (все элементы сдвигаются)
-Для эффективной очереди используем `collections.deque`.ъ
+Для эффективной очереди используем `collections.deque`
 
 
 #### Односвязный список (Singly Linked List)
